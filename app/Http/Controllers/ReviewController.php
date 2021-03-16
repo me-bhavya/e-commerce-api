@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use App\Product;
 use Illuminate\Http\Request;
+use App\Http\Resources\ReviewResource;
 
 class ReviewController extends Controller
 {
@@ -12,9 +14,9 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $product)
     {
-        //
+        return ReviewResource::collection($product->reviews);
     }
 
     /**
@@ -23,9 +25,7 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
-    }
+    { }
 
     /**
      * Store a newly created resource in storage.
@@ -34,9 +34,7 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
+    { }
 
     /**
      * Display the specified resource.
@@ -45,9 +43,7 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Review $review)
-    {
-        //
-    }
+    { }
 
     /**
      * Show the form for editing the specified resource.
@@ -56,9 +52,7 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Review $review)
-    {
-        //
-    }
+    { }
 
     /**
      * Update the specified resource in storage.
@@ -68,9 +62,7 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Review $review)
-    {
-        //
-    }
+    { }
 
     /**
      * Remove the specified resource from storage.
@@ -79,7 +71,5 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Review $review)
-    {
-        //
-    }
+    { }
 }
