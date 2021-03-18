@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductCollection;
 use App\Http\Requests\ProductRequest;
+use symfony\Component\HttpFoundation\Response;
 
 class ProductController extends Controller
 {
@@ -52,7 +53,7 @@ class ProductController extends Controller
 
         return response([
             'data' => new ProductResource($product)
-        ], 201);
+        ], Response::HTTP - CREATED);
     }
 
     /**
@@ -85,7 +86,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->update($request->all());
-        return response(['data' => new ProductResource($product)], 300);
+        return response(['data' => new ProductResource($product)], Response::HTTP - ACCEPTED);
     }
 
     /**
